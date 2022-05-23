@@ -1,0 +1,201 @@
+/* You can add global styles to this file, and also import other style files */
+$color_main: #f2c94c;
+$color_text: #363636;
+$space_desktop: 100px;
+
+@font-face {
+  font-family: Inter;
+  src: url(../src/assets/font-family/Inter/static/Inter-Medium.ttf)
+    format("opentype");
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: "Inter";
+  color: #363636;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+footer {
+  background-color: #f1f1f1;
+}
+ol.flickity-page-dots {
+  display: none;
+}
+
+.recruitment .flickity-prev-next-button {
+  bottom: -95px;
+  top: auto;
+  transform: unset;
+}
+.recruitment .flickity-prev-next-button.previous {
+  left: 47%;
+}
+.recruitment .flickity-prev-next-button.previous svg,
+.recruitment .flickity-prev-next-button.next svg {
+  display: none;
+}
+.recruitment .flickity-prev-next-button.previous::before {
+  content: "\f1e6";
+  font-family: "Material Symbols Outlined";
+  font-size: 26px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recruitment .flickity-prev-next-button.next {
+  right: 47%;
+}
+.recruitment .flickity-prev-next-button.next::before {
+  content: "\f1df";
+  font-family: "Material Symbols Outlined";
+  font-size: 26px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recruitment .flickity-button {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+}
+.recruitment .flickity-button:hover {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.wrapper {
+  .owl-carousel .owl-nav {
+    position: absolute;
+    margin: 0 !important;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    .nav-btn {
+    }
+    .owl-next {
+      right: 0;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 100%;
+      padding: 4px 4px;
+      &:hover {
+        color: $color_main;
+        background: rgba(0, 0, 0, 0.2);
+      }
+    }
+    .owl-prev {
+      left: 0;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 100%;
+      padding: 4px 4px;
+      &:hover {
+        color: $color_main;
+        background: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+.timeline-section .wrapper {
+  .owl-carousel .owl-nav {
+    top: 0;
+    transform: unset;
+    .owl-prev,
+    .owl-next {
+      background: rgba(0, 0, 0, 0.4);
+      color: $color_text;
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      margin: 0;
+      span {
+        line-height: 42px;
+      }
+    }
+    .owl-prev {
+      left: -50px;
+
+    }
+    .owl-next {
+      right: -50px;
+    }
+  }
+  .owl-item:last-child {
+    .status {
+      padding-right: 0;
+      .border-content {
+        &::before {
+          content: "";
+          width: 0;
+          height: 0;
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+          border-bottom: 20px solid #ffba34;
+          position: absolute;
+          top: -20px;
+          right: 50%;
+          transform: translateX(50%);
+        }
+        .bgr-content {
+          padding: 20px;
+          background: #ffba34;
+          border-radius: 20px;
+
+          .content {
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.12);
+            z-index: 2;
+            position: relative;
+            padding: 20px;
+
+          }
+          .item-border {
+            position: absolute;
+            width: calc(100% - 4px);
+            height: calc(50% - 4px);
+            bottom: 0;
+            border-radius: 0 0 20px 20px;
+            border-right: 2px dashed #ffba34;
+            background: #fff;
+            left: 0;
+            z-index: 1;
+            border-left: 2px dashed #ffba34;
+            border-bottom: 2px dashed #ffba34;
+          }
+        }
+      }
+    }
+
+
+
+  }
+}
+@media (min-width: 1320px) {
+  .container {
+    max-width: 1560px !important;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .container-home,
+  .container-header {
+    max-width: 1230px !important;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .container-product {
+    max-width: 740px !important;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

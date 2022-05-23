@@ -1,0 +1,184 @@
+$color_main: #f2c94c;
+$color_text: #363636;
+$space_desktop: 100px;
+
+.volio-library {
+  width: -webkit-fill-available;
+}
+.library-section {
+  margin-top: $space_desktop;
+}
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  // max-width: 1200px;
+  // margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background-color: $color_main;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin-left: -3px;
+}
+
+/* container-library around content */
+.container-library {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: auto;
+  display: inline-block;
+  top: -40px;
+  .content {
+
+    p {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 28px;
+      color: #fff;
+      padding: 6px 12px;
+      background-color: $color_text;
+      border-radius: 6px;
+      display: inline-block;
+      transition: all 0.4s ease-out;
+    }
+    ul {
+      // display: none;
+      // opacity: 0;
+      margin: 0;
+      padding: 10px 0 0px 20px;
+      transition: all 0.4s ease-out;
+      &:not(#list-time-0) {
+        display: none;
+      }
+      li {
+        padding: 20px 0;
+        font-weight: 600;
+font-size: 16px;
+line-height: 28px;
+        &:last-child {
+          padding-bottom: 10px;
+        }
+      }
+    }
+    &.active {
+      p {
+        background-color: $color_main;
+      }
+
+    }
+
+  }
+}
+
+/* The circles on the timeline */
+.container-library .content::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: -54px;
+  background-color:  $color_text;
+  border: 4px solid $color_text;
+  top: 10px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.container-library .content.active::after {
+  background-color:  $color_main;
+  border: 4px solid #ff9f55;
+}
+
+/* Place the container-library to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container-library to the right */
+.right {
+  left: 0;
+}
+
+/* Add arrows to the left container-library (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid $color_main;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent $color_main;
+}
+
+/* Add arrows to the right container-library (pointing left) */
+.content::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 10px;
+  width: 0;
+  z-index: 1;
+  left: -10px;
+  border: medium solid $color_text;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent $color_text transparent transparent;
+  transition: all 0.4s ease-out;
+}
+.content.active::before {
+  border: medium solid $color_main;
+  border-color: transparent $color_main transparent transparent;
+  border-width: 10px 10px 10px 0;
+}
+
+/* Fix the circle for container-librarys on the right side */
+.right::after {
+  left: -14px;
+}
+
+/* The actual content */
+.content {
+  position: relative;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+    left: 31px;
+  }
+
+  /* Full-width container-librarys */
+  .container-library {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  /* Make sure that all arrows are pointing leftwards */
+  .container-library::before {
+    left: 60px;
+    border: medium solid $color_main;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent $color_main transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after,
+  .right::after {
+    left: 15px;
+  }
+
+  /* Make all right container-librarys behave like the left ones */
+  .right {
+    left: 0%;
+  }
+}

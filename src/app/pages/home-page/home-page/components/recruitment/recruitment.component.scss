@@ -1,0 +1,212 @@
+/* .gallery {
+  background: #EEE;
+} */
+
+$color_main: #f2c94c;
+$color_text: #363636;
+$item: item_level;
+
+.gallery-cell {
+  width: 39%;
+  height: 240px;
+  margin-right: 24px;
+  counter-increment: gallery-cell;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 24px;
+  padding: 40px 50px;
+  position: relative;
+}
+.gallery-cell::before {
+  content: "";
+  position: absolute;
+  background-color: rgba(173, 145, 47, 0.48);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  left: 0;
+  top: 0;
+}
+// .recruitment  .is-selected {
+//   width: 50%;
+// }
+.recruitment  .is-selected::before {
+  background-color: unset;
+}
+
+
+.recruitment .title-recruitment {
+  font-weight: 700;
+font-size: 24px;
+line-height: 36px;
+margin-top: 0;
+position: relative;
+display: inline-block;
+}
+
+.recruitment .title-recruitment::before {
+  content: "new";
+  position: absolute;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 7px 5px;
+  left: -50px;
+  background-color: #00CD39;
+  color: #fff;
+  line-height: 16px;
+  bottom: 15px;
+  border-radius: 8px 8px 0px 8px;
+}
+.recruitment .title-recruitment::after {
+  content: "";
+  position: absolute;
+  left: -21px;
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-top: 6px solid #00A32E;
+  bottom: 9px;
+}
+
+@if ($item == 'new'){
+  .recruitment .title-recruitment::before {
+    content: "new";
+    position: absolute;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 7px 5px;
+    left: -50px;
+    background-color: #00CD39;
+    color: #fff;
+    line-height: 16px;
+    bottom: 15px;
+    border-radius: 8px 8px 0px 8px;
+  }
+  .recruitment .title-recruitment::after {
+    content: "";
+    position: absolute;
+    left: -21px;
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-top: 6px solid #00A32E;
+    bottom: 9px;
+  }
+}
+@else if($item == 'hot'){
+  .recruitment .title-recruitment::before {
+    content: "new";
+    position: absolute;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 7px 5px;
+    left: -50px;
+    background-color: #00CD39;
+    color: #fff;
+    line-height: 16px;
+    bottom: 15px;
+    border-radius: 8px 8px 0px 8px;
+  }
+  .recruitment .title-recruitment::after {
+    content: "";
+    position: absolute;
+    left: -21px;
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-top: 6px solid #00A32E;
+    bottom: 9px;
+  }
+}
+
+.recruitment .up-recruitment, .recruitment .deadline-recruitment  {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 32px;
+}
+.recruitment .up-recruitment {
+
+  border-right: 1px solid $color_text;
+  padding-right: 10px;
+}
+.recruitment .deadline-recruitment {
+  padding-left: 15px;
+}
+.recruitment .des-recruitment {
+  font-weight: 400;
+font-size: 16px;
+line-height: 28px;
+  opacity: 0.6;
+}
+
+.recruitment button {
+
+
+  width: 200px;
+  height: 60px;
+  padding: 0;
+
+border: none;
+}
+.recruitment button a {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color_main;
+  border-radius: 8px;
+
+}
+.recruitment button a:hover {
+  color: $color_main;
+  background: $color_text;
+}
+
+
+/* cell number */
+/* .gallery-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+} */
+
+.recruitment {
+  position: relative;
+  background-image: url("../../../../../../assets/img/img_home_hr.png");
+
+backdrop-filter: blur(6px);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 245px;
+
+  background-size: cover;
+  z-index: 1;
+}
+.recruitment .recruitment-main {
+  position: relative;
+  background-color: rgba(173, 145, 47, 0.48);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  padding:60px 0 150px 0;
+}
+.recruitment h6 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 40px;
+  color: #fff;
+  margin:0px 0 50px 0;
+  text-align: center;
+  padding: 0 15px;
+}
