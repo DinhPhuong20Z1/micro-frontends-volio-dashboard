@@ -25,6 +25,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecruitPageComponent } from './pages/recruit-page/recruit-page/recruit-page.component';
 import { NbAuthService } from '@nebular/auth';
 import { LibraryPageComponent } from './pages/library-page/library-page/library-page.component';
+import { MaterialExampleModule } from 'src/material.module';
+import { PostRecruitPageComponent, DialogRecruitPage } from './pages/recruit-page/components/post-recruit-page/post-recruit-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+
 //Khai báo một constant chứa các route của app
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full',  component: HomePageComponent },
@@ -33,7 +37,8 @@ const routes: Routes = [
   { path: 'hoat-dong', component: ActivityPageComponent },
   { path: 'thu-vien', component: LibraryPageComponent },
   { path: 'tuyen-dung', component: RecruitPageComponent },
-  { path: 'lien-he', component: AppComponent },
+  { path: 'tuyen-dung/:id', component: PostRecruitPageComponent },
+  { path: 'lien-he', component: ContactPageComponent },
 ];
 //Import RouterModule vào import của app.module
 @NgModule({
@@ -53,6 +58,9 @@ const routes: Routes = [
     ActivityPageComponent,
     RecruitPageComponent,
     LibraryPageComponent,
+    PostRecruitPageComponent,
+    DialogRecruitPage,
+    ContactPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +72,7 @@ const routes: Routes = [
     MDBBootstrapModule.forRoot(),
     CarouselModule,
     HttpClientModule,
+    MaterialExampleModule,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [NbStatusService],

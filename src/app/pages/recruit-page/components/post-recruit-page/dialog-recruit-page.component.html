@@ -1,0 +1,53 @@
+<h6 class="title-dialog">Thông tin hồ sơ ứng tuyển:</h6>
+
+<form class="form-dialog">
+  <mat-form-field class="name-dialog" appearance="fill">
+    <mat-label>Họ và tên</mat-label>
+    <input matInput placeholder="" value="" />
+  </mat-form-field>
+  <div class="email-phone">
+    <mat-form-field class="email-dialog" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="" value="" />
+    </mat-form-field>
+    <mat-form-field class="phone-dialog" appearance="fill">
+      <mat-label>Điện thoại </mat-label>
+      <input matInput placeholder="" value="" />
+    </mat-form-field>
+  </div>
+
+  <mat-form-field class="des-dialog" appearance="fill">
+    <mat-label>Lời giới thiệu:</mat-label>
+    <textarea rows="6" matInput placeholder="" value=""></textarea>
+  </mat-form-field>
+</form>
+
+<div class="file-upload">
+  <div class="header-upload">
+    <div class="mb">0/100MB</div>
+    <div class="bt-upload">
+
+      <input
+        type="file"
+        class="file-input"
+        (change)="onFileSelected($event)"
+        #fileUpload
+      />
+      <a  (click)="fileUpload.click()" class="title-upload"><span class="material-symbols-outlined icon-upload"> file_upload </span>Tải lên file</a>
+    </div>
+  </div>
+  <div class="content-upload">
+    <div class="no-file" *ngIf="fileName; else elseBlock">
+      <span class="material-symbols-outlined"> file_present </span>
+      <p>{{fileName }}</p>
+    </div>
+    <ng-template #elseBlock class="no-file">
+      <span class="material-symbols-outlined"> file_present </span>
+      <p>File đính kèm</p>
+
+    </ng-template>
+  </div>
+</div>
+<button  mat-stroked-button class="savedialog" (click)="saveDialog()">
+  Nộp hồ sơ
+</button>

@@ -22,6 +22,9 @@ body {
 p {
   margin: 0;
 }
+header {
+  box-shadow: 0px 4px 8px rgb(0 0 0 / 8%);
+}
 footer {
   background-color: #f1f1f1;
 }
@@ -198,4 +201,11 @@ ol.flickity-page-dots {
     margin-right: auto;
     margin-left: auto;
   }
+}
+.mat-dialog-container .title-dialog {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: $color_main;
+  margin: 0 0  20px 0;
 }
