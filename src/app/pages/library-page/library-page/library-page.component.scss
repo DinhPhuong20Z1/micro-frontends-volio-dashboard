@@ -23,7 +23,7 @@ $space_desktop: 100px;
   background-color: $color_main;
   top: 0;
   bottom: 0;
-  left: 0;
+  left: 100px;
   margin-left: -3px;
 }
 
@@ -34,7 +34,8 @@ $space_desktop: 100px;
   background-color: inherit;
   width: auto;
   display: inline-block;
-  top: -40px;
+  top: 0px;
+  left: 100px;
   .content {
 
     p {
@@ -102,7 +103,7 @@ line-height: 28px;
 
 /* Place the container-library to the right */
 .right {
-  left: 0;
+  left: 100px;
 }
 
 /* Add arrows to the left container-library (pointing right) */
@@ -181,4 +182,14 @@ line-height: 28px;
   .right {
     left: 0%;
   }
+}
+.scroll-time {
+  max-height: 300px;
+    overflow-y: scroll;
+    width: 100%;
+    display: inline-block;
+    position: fixed;
+    top: 18%;
+    z-index: 9999;
+    left: 5%;;
 }
