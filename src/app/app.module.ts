@@ -3,12 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './@theme/container/header/header.component';
-import { NbIconModule, NbStatusService } from '@nebular/theme';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { Routes, RouterModule } from '@angular/router';
 import { FooterComponent } from './@theme/container/footer/footer.component';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HomePageComponent } from './pages/home-page/home-page/home-page.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RecruitmentComponent } from './pages/home-page/home-page/components/recruitment/recruitment.component';
@@ -23,7 +21,6 @@ import { ActivityPageComponent } from './pages/activity/activity-page/activity-p
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HttpClientModule } from '@angular/common/http';
 import { RecruitPageComponent } from './pages/recruit-page/recruit-page/recruit-page.component';
-import { NbAuthService } from '@nebular/auth';
 import { LibraryPageComponent } from './pages/library-page/library-page/library-page.component';
 import { MaterialExampleModule } from 'src/material.module';
 import { PostRecruitPageComponent, DialogRecruitPage } from './pages/recruit-page/components/post-recruit-page/post-recruit-page.component';
@@ -67,15 +64,13 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatGridListModule,
     RouterModule.forRoot(routes),
-    NbEvaIconsModule,
-    NbIconModule,
     MDBBootstrapModule.forRoot(),
     CarouselModule,
     HttpClientModule,
     MaterialExampleModule,
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [NbStatusService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
