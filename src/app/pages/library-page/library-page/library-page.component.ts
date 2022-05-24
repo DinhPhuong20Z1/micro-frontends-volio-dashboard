@@ -81,7 +81,6 @@ export class LibraryPageComponent implements OnInit {
 
   openTimeLine(evt: any, tabName: any) {
     let a = `list-time-${tabName}`;
-    console.log('a', a);
     var i, x, tablinks;
     x = document.getElementsByClassName(
       'itemContent'
@@ -93,14 +92,16 @@ export class LibraryPageComponent implements OnInit {
     for (i = 0; i < x.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(' active', '');
     }
-    console.log('a', a)
     if (a != null) {
       let element = document.getElementById(a);
       if (element) {
-        console.log('a', a)
         element.style.display = 'block';
       }
       evt.currentTarget.className += ' active';
     }
+  }
+
+  onData(evt: any, time: any) {
+    console.log('time',time)
   }
 }

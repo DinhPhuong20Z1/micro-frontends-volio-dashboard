@@ -5,3 +5,62 @@ $space_desktop: 100px;
 .volio-contact {
   width: -webkit-fill-available;
 }
+.contact {
+  margin-top: $space_desktop;
+  margin-bottom: $space_desktop;
+  .contact-section {
+    display: flex;
+    > img {
+      width: 50%;
+      padding: 0 15px;
+    }
+    .colum-form {
+      width: 50%;
+      padding: 0 15px;
+      h6 {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 40px;
+        margin: 0;
+        margin-bottom: 18px;
+      }
+      .list-form-contact {
+        .form-dialog {
+          .name-contact,
+          .title-contact,
+          .des-contact {
+            width: 100%;
+          }
+          .email-phone {
+            display: flex;
+            .email-contact,
+            .phone-contact {
+              width: 50%;
+            }
+            .email-contact {
+              margin-left: 10px;
+            }
+            .phone-contact {
+              margin-right: 10px;
+            }
+          }
+        }
+
+
+      }
+      .sumbitform {
+        background: #FFC934;
+        border-radius: 4px;
+        font-size: 18px;
+        line-height: 56px;
+        color: #fff;
+        font-family: "Inter";
+        border: none;
+        padding: 0 87px;
+        &:hover {
+          background-color: #494949;
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,8 @@
-<img class="volio-library" src="../../../../assets/img/library/banner-library-page.png" alt="volio-team" />
+<img
+  class="volio-library"
+  src="../../../../assets/img/library/banner-library-page.png"
+  alt="volio-team"
+/>
 <!-- <section class="timeline">
   <ul  *ngFor="let item of listTimeLine">
     <li class="container left">
@@ -8,94 +12,100 @@
     </li>
   </ul>
 </section> -->
-<div class=" container-home library-section-v1 library-section">
-  <div class="timeline" *ngFor="let item of listTimeLine; let i = index">
-    <div class="container-library right">
-      <div  (click)="openTimeLine($event, i)" class="content tablink">
-        <p >{{item.year}}</p>
-        <ul id="list-time-{{i}}" class="itemContent"  >
-          <li *ngFor="let items of item.month;  let j = index">{{items.itemMonth}}</li>
-        </ul>
+<div class="container-home library-section-v1 library-section">
+  <div class="scroll-time">
+    <div class="timeline" *ngFor="let item of listTimeLine; let i = index">
+      <div class="container-library right">
+        <div (click)="openTimeLine($event, i)" class="content tablink">
+          <p>{{ item.year }}</p>
+          <ul id="list-time-{{ i }}" class="itemContent">
+            <li *ngFor="let items of item.month; let j = index" (click)="onData($event, items.itemMonth)" >
+              {{ items.itemMonth }}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
+
+
+</div>
+<div class="content">
+
 </div>
 <section class="content-timeline">
-  <div class="container-home ">
+  <div class="container-home">
     <div class="wrapper">
       <owl-carousel-o [options]="customOptions">
-
-        <ng-template class="slide" carouselSlide  id="2">
+        <ng-template class="slide" carouselSlide id="2">
           <div data-hash="mentors">
             <img
-
-            src="../../../../assets/img/library/library-img-1.png"
-            alt="2"
-            title="Happy Friday"
-          />
+              src="../../../../assets/img/library/library-img-1.png"
+              alt="2"
+              title="Happy Friday"
+            />
           </div>
-
         </ng-template>
         <ng-template class="slide" carouselSlide id="3">
           <img
-          data-hash="image2"
-          src="../../../../assets/img/library/library-img-2.png"
+            data-hash="image2"
+            src="../../../../assets/img/library/library-img-2.png"
             alt="3"
             title="Happy Friday"
           />
         </ng-template>
         <ng-template class="slide" carouselSlide id="4">
           <img
-          src="../../../../assets/img/library/library-img-3.png"
+            src="../../../../assets/img/library/library-img-3.png"
             alt="4"
             title="Happy Friday"
           />
         </ng-template>
         <ng-template class="slide" carouselSlide id="4">
           <img
-          src="../../../../assets/img/library/library-img-4.png"
+            src="../../../../assets/img/library/library-img-4.png"
             alt="4"
             title="Happy Friday"
           />
         </ng-template>
         <ng-template class="slide" carouselSlide id="4">
           <img
-          src="../../../../assets/img/library/library-img-5.png"
+            src="../../../../assets/img/library/library-img-5.png"
             alt="4"
             title="Happy Friday"
           />
         </ng-template>
         <ng-template class="slide" carouselSlide id="4">
           <img
-          src="../../../../assets/img/library/library-img-6.png"
+            src="../../../../assets/img/library/library-img-6.png"
             alt="4"
             title="Happy Friday"
           />
         </ng-template>
         <ng-template class="slide" carouselSlide id="4">
           <img
-          src="../../../../assets/img/library/library-img-7.png"
+            src="../../../../assets/img/library/library-img-7.png"
             alt="4"
             title="Happy Friday"
           />
         </ng-template>
         <ng-template class="slide" carouselSlide id="4">
           <img
-          src="../../../../assets/img/library/library-img-8.png"
+            src="../../../../assets/img/library/library-img-8.png"
             alt="4"
             title="Happy Friday"
           />
         </ng-template>
         <ng-template class="slide" carouselSlide id="4">
           <img
-          src="../../../../assets/img/library/library-img-9.png"
+            src="../../../../assets/img/library/library-img-9.png"
             alt="4"
             title="Happy Friday"
           />
         </ng-template>
         <ng-template class="slide" carouselSlide id="4">
           <img
-          src="../../../../assets/img/library/library-img-10.png"
+            src="../../../../assets/img/library/library-img-10.png"
             alt="4"
             title="Happy Friday"
           />
@@ -104,7 +114,6 @@
       <div>
         <a href="#mentors">
           <img
-
             src="../../../../assets/img/library/library-img-1.png"
             alt="2"
             title="Happy Friday"
@@ -112,16 +121,12 @@
         </a>
         <a href="#image2">
           <img
-
             src="../../../../assets/img/library/library-img-2.png"
             alt="2"
             title="Happy Friday"
           />
         </a>
-
       </div>
     </div>
   </div>
-
 </section>
-
