@@ -1,6 +1,7 @@
 .footer-container {
 
-  padding: 45px 15px;
+  padding-top: 45px;
+  padding-bottom: 45px;
   display: grid;
   /* grid-template-columns: auto auto auto; */
   grid-template-columns:  2fr 2fr 4fr 2fr ;
@@ -57,13 +58,10 @@
   display: flex;
   line-height: 24px;
 }
-.footer-container  .information-item nb-icon {
+.footer-container  .information-item span.icon-footer {
   margin-right: 10px;
 }
 .footer-container  .information-footer .information-item-list:not(:last-child) {
  margin-right: 30px;
 }
-nb-icon {
-  width: 24px;
-  height: 24px;
-}
+

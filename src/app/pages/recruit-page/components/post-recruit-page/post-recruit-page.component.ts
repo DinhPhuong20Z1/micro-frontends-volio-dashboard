@@ -54,7 +54,8 @@ export class PostRecruitPageComponent implements OnInit {
   styleUrls: ['./post-recruit-page.component.scss'],
 })
 export class DialogRecruitPage {
-  fileName = '';
+  datafile: number = 0;
+  files: any = []
 
   constructor(
     public dialogRef: MatDialogRef<DialogRecruitPage>,
@@ -67,43 +68,49 @@ export class DialogRecruitPage {
 
   saveDialog() {}
 
+
+
   // onFileSelected(event: any) {
-  //   const file: File = event.target.files[0];
+  //   const file:File = event.target.files[0];
 
   //   if (file) {
-  //     this.fileName = file.name;
+  //       this.datafile = file.name;
+  //       const formData = new FormData();
+  //       formData.append("thumbnail", file);
 
-  //     const formData = new FormData();
 
-  //     formData.append('thumbnail', file);
-
-  //     // const upload$ = this.http.post("/api/thumbnail-upload", formData);
-
-  //     // upload$.subscribe();
   //   }
   // }
-
   onFileSelected(event: any) {
-    const file:File = event.target.files[0];
-
-    if (file) {
-        this.fileName = file.name;
-        const formData = new FormData();
-        formData.append("thumbnail", file);
-
-        // const upload$ = this.http.post("/api/thumbnail-upload", formData, {
-        //     reportProgress: true,
-        //     observe: 'events'
-        // })
-        // .pipe(
-        //     finalize(() => this.reset())
-        // );
-
-        // this.uploadSub = upload$.subscribe(event => {
-        //   if (event.type == HttpEventType.UploadProgress) {
-        //     this.uploadProgress = Math.round(100 * (event.loaded / event.total));
-        //   }
-        // })
+    const file = event.target.files;
+    for (let i = 0; i < file.length; i++) {
+      this.files.push(file[i]);
     }
+    this.totalSizeFile();
+    console.log('datafile', this.datafile);
+    if (file) {
+      const formData = new FormData();
+      formData.append('thumbnail', file);
+    }
+  }
+
+  handleFileDelete(f: any) {
+    const deleteData = this.files.filter((i: any, idx: any) => idx !== f);
+    this.files = deleteData;
+    this.totalSizeFile();
+  }
+
+  totalSizeFile() {
+    let totalData = 0;
+    for (let j = 0; j < this.files.length; j++) {
+      totalData += this.files[j].size;
+    }
+    console.log('totalData', totalData);
+    console.log('files', this.files);
+
+    let fSize = totalData / 1024;
+    console.log('fSize', fSize);
+    let sizeMB = fSize / 1024;
+    this.datafile = Number(sizeMB.toFixed(2));
   }
 }

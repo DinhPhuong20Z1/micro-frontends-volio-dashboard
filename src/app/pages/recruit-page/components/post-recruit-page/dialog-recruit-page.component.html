@@ -24,7 +24,7 @@
 
 <div class="file-upload">
   <div class="header-upload">
-    <div class="mb">0/100MB</div>
+    <div class="mb">{{datafile}}/100MB</div>
     <div class="bt-upload">
 
       <input
@@ -32,14 +32,25 @@
         class="file-input"
         (change)="onFileSelected($event)"
         #fileUpload
+        multiple
       />
       <a  (click)="fileUpload.click()" class="title-upload"><span class="material-symbols-outlined icon-upload"> file_upload </span>Tải lên file</a>
     </div>
   </div>
   <div class="content-upload">
-    <div class="no-file" *ngIf="fileName; else elseBlock">
-      <span class="material-symbols-outlined"> file_present </span>
-      <p>{{fileName }}</p>
+    <div class="list-file"  *ngIf="files?.length > 0 else elseBlock">
+      <div class="item-file"*ngFor="let file of files; let i = index">
+
+        <span class="material-symbols-outlined icon-file"> file_present </span>
+        <div  (click)="handleFileDelete(i)">
+          <span class="material-symbols-outlined icon-cancel">
+            cancel
+            </span>
+        </div>
+
+      <p>{{file.name }}</p>
+      </div>
+
     </div>
     <ng-template #elseBlock class="no-file">
       <span class="material-symbols-outlined"> file_present </span>

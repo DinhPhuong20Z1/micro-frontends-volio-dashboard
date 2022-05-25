@@ -19,6 +19,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./library-page.component.scss'],
 })
 export class LibraryPageComponent implements OnInit {
+  openvideo = '1';
   listTimeLine = [
     {
       year: '2022',
@@ -33,10 +34,7 @@ export class LibraryPageComponent implements OnInit {
     },
     {
       year: '2021',
-      month: [
-        { itemMonth: '1' },
-        { itemMonth: '2' },
-      ],
+      month: [{ itemMonth: '1' }, { itemMonth: '2' }],
     },
     {
       year: '2020',
@@ -54,15 +52,14 @@ export class LibraryPageComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: true,
     // autoplay: true,
-    center: true,
     dots: false,
     // autoHeight: true,
     // autoWidth: true,
-    URLhashListener: true,
-  autoplayHoverPause: true,
-  startPosition: 'URLHash',
     nav: true,
-    navText:["<div class='nav-btn prev-slide'><span class='material-symbols-outlined'>west</span></div>","<div class='nav-btn next-slide'><span class='material-symbols-outlined'>east</span></div>"],
+    navText: [
+      "<div class='nav-btn prev-slide'><span class='material-symbols-outlined'>west</span></div>",
+      "<div class='nav-btn next-slide'><span class='material-symbols-outlined'>east</span></div>",
+    ],
     responsive: {
       0: {
         items: 1,
@@ -71,13 +68,15 @@ export class LibraryPageComponent implements OnInit {
         items: 1,
       },
       1000: {
-        items: 1,
-      }
-    }
-  }
+        items: 10,
+      },
+    },
+  };
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   openTimeLine(evt: any, tabName: any) {
     let a = `list-time-${tabName}`;
@@ -102,6 +101,25 @@ export class LibraryPageComponent implements OnInit {
   }
 
   onData(evt: any, time: any) {
-    console.log('time',time)
+    console.log('time', time);
+  }
+
+  openVideo() {
+    this.openvideo = '1';
+  }
+
+  myFunction(imgs: any) {
+    console.log('imgs',imgs)
+    this.openvideo = '';
+    let expandImg = document.getElementById(
+      'expandedImg'
+    ) as HTMLImageElement | null;
+    console.log('expandImg',expandImg)
+    if (expandImg != null) {
+      expandImg.src = imgs.srcElement.currentSrc;
+    }
+    if (expandImg != null && expandImg.parentElement != null) {
+      expandImg.parentElement.style.display = 'block';
+    }
   }
 }

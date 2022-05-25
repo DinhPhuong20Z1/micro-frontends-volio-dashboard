@@ -3,17 +3,47 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-contact-page',
   templateUrl: './contact-page.component.html',
-  styleUrls: ['./contact-page.component.scss']
+  styleUrls: ['./contact-page.component.scss'],
 })
 export class ContactPageComponent implements OnInit {
+  datafile: number = 0;
+  files: any = [];
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  sumbitForm() {}
+
+  onFileSelected(event: any) {
+    const file = event.target.files;
+    for (let i = 0; i < file.length; i++) {
+      this.files.push(file[i]);
+    }
+    this.totalSizeFile();
+    console.log('datafile', this.datafile);
+    if (file) {
+      const formData = new FormData();
+      formData.append('thumbnail', file);
+    }
   }
 
-  sumbitForm() {
-
+  handleFileDelete(f: any) {
+    const deleteData = this.files.filter((i: any, idx: any) => idx !== f);
+    this.files = deleteData;
+    this.totalSizeFile();
   }
 
+  totalSizeFile() {
+    let totalData = 0;
+    for (let j = 0; j < this.files.length; j++) {
+      totalData += this.files[j].size;
+    }
+    console.log('totalData', totalData);
+    console.log('files', this.files);
+
+    let fSize = totalData / 1024;
+    console.log('fSize', fSize);
+    let sizeMB = fSize / 1024;
+    this.datafile = Number(sizeMB.toFixed(2));
+  }
 }

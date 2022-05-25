@@ -5,6 +5,7 @@
 $color_main: #f2c94c;
 $color_text: #363636;
 $item: item_level;
+$color_background: #FFC934;
 
 .gallery-cell {
   width: 39%;
@@ -30,18 +31,17 @@ $item: item_level;
 // .recruitment  .is-selected {
 //   width: 50%;
 // }
-.recruitment  .is-selected::before {
+.recruitment .is-selected::before {
   background-color: unset;
 }
 
-
 .recruitment .title-recruitment {
   font-weight: 700;
-font-size: 24px;
-line-height: 36px;
-margin-top: 0;
-position: relative;
-display: inline-block;
+  font-size: 24px;
+  line-height: 36px;
+  margin-top: 0;
+  position: relative;
+  display: inline-block;
 }
 
 .recruitment .title-recruitment::before {
@@ -51,7 +51,7 @@ display: inline-block;
   font-size: 14px;
   padding: 7px 5px;
   left: -50px;
-  background-color: #00CD39;
+  background-color: #00cd39;
   color: #fff;
   line-height: 16px;
   bottom: 15px;
@@ -64,11 +64,11 @@ display: inline-block;
   width: 0;
   height: 0;
   border-left: 9px solid transparent;
-  border-top: 6px solid #00A32E;
+  border-top: 6px solid #00a32e;
   bottom: 9px;
 }
 
-@if ($item == 'new'){
+@if ($item == "new") {
   .recruitment .title-recruitment::before {
     content: "new";
     position: absolute;
@@ -76,7 +76,7 @@ display: inline-block;
     font-size: 14px;
     padding: 7px 5px;
     left: -50px;
-    background-color: #00CD39;
+    background-color: #00cd39;
     color: #fff;
     line-height: 16px;
     bottom: 15px;
@@ -89,11 +89,10 @@ display: inline-block;
     width: 0;
     height: 0;
     border-left: 9px solid transparent;
-    border-top: 6px solid #00A32E;
+    border-top: 6px solid #00a32e;
     bottom: 9px;
   }
-}
-@else if($item == 'hot'){
+} @else if($item == "hot") {
   .recruitment .title-recruitment::before {
     content: "new";
     position: absolute;
@@ -101,7 +100,7 @@ display: inline-block;
     font-size: 14px;
     padding: 7px 5px;
     left: -50px;
-    background-color: #00CD39;
+    background-color: #00cd39;
     color: #fff;
     line-height: 16px;
     bottom: 15px;
@@ -114,18 +113,18 @@ display: inline-block;
     width: 0;
     height: 0;
     border-left: 9px solid transparent;
-    border-top: 6px solid #00A32E;
+    border-top: 6px solid #00a32e;
     bottom: 9px;
   }
 }
 
-.recruitment .up-recruitment, .recruitment .deadline-recruitment  {
+.recruitment .up-recruitment,
+.recruitment .deadline-recruitment {
   font-weight: 500;
   font-size: 18px;
   line-height: 32px;
 }
 .recruitment .up-recruitment {
-
   border-right: 1px solid $color_text;
   padding-right: 10px;
 }
@@ -134,19 +133,17 @@ display: inline-block;
 }
 .recruitment .des-recruitment {
   font-weight: 400;
-font-size: 16px;
-line-height: 28px;
+  font-size: 16px;
+  line-height: 28px;
   opacity: 0.6;
 }
 
 .recruitment button {
-
-
   width: 200px;
   height: 60px;
   padding: 0;
-
-border: none;
+  border: none;
+  margin-top: 30px;
 }
 .recruitment button a {
   font-weight: 700;
@@ -159,15 +156,15 @@ border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $color_main;
+  background: $color_background;
   border-radius: 8px;
-
+  text-transform: uppercase;
+  font-family: "Inter";
 }
 .recruitment button a:hover {
   color: $color_main;
   background: $color_text;
 }
-
 
 /* cell number */
 /* .gallery-cell:before {
@@ -183,7 +180,7 @@ border: none;
   position: relative;
   background-image: url("../../../../../../assets/img/img_home_hr.png");
 
-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
@@ -199,14 +196,14 @@ backdrop-filter: blur(6px);
   width: 100%;
   height: 100%;
   z-index: 2;
-  padding:60px 0 150px 0;
+  padding: 60px 0 150px 0;
 }
 .recruitment h6 {
   font-weight: 700;
   font-size: 36px;
   line-height: 40px;
   color: #fff;
-  margin:0px 0 50px 0;
+  margin: 0px 0 50px 0;
   text-align: center;
   padding: 0 15px;
 }

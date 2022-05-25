@@ -63,7 +63,7 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     MatGridListModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
     MDBBootstrapModule.forRoot(),
     CarouselModule,
     HttpClientModule,

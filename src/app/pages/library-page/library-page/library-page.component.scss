@@ -3,7 +3,7 @@ $color_text: #363636;
 $space_desktop: 100px;
 
 .volio-library {
-  width: -webkit-fill-available;
+  width: 100%;
 }
 .library-section {
   margin-top: $space_desktop;
@@ -23,7 +23,7 @@ $space_desktop: 100px;
   background-color: $color_main;
   top: 0;
   bottom: 0;
-  left: 100px;
+  left: 90px;
   margin-left: -3px;
 }
 
@@ -35,9 +35,8 @@ $space_desktop: 100px;
   width: auto;
   display: inline-block;
   top: 0px;
-  left: 100px;
+  left: 90px;
   .content {
-
     p {
       font-weight: 700;
       font-size: 16px;
@@ -61,8 +60,8 @@ $space_desktop: 100px;
       li {
         padding: 20px 0;
         font-weight: 600;
-font-size: 16px;
-line-height: 28px;
+        font-size: 16px;
+        line-height: 28px;
         &:last-child {
           padding-bottom: 10px;
         }
@@ -72,9 +71,7 @@ line-height: 28px;
       p {
         background-color: $color_main;
       }
-
     }
-
   }
 }
 
@@ -85,14 +82,14 @@ line-height: 28px;
   width: 16px;
   height: 16px;
   left: -54px;
-  background-color:  $color_text;
+  background-color: $color_text;
   border: 4px solid $color_text;
   top: 10px;
   border-radius: 50%;
   z-index: 1;
 }
 .container-library .content.active::after {
-  background-color:  $color_main;
+  background-color: $color_main;
   border: 4px solid #ff9f55;
 }
 
@@ -103,7 +100,7 @@ line-height: 28px;
 
 /* Place the container-library to the right */
 .right {
-  left: 100px;
+  left: 90px;
 }
 
 /* Add arrows to the left container-library (pointing right) */
@@ -185,11 +182,102 @@ line-height: 28px;
 }
 .scroll-time {
   max-height: 300px;
-    overflow-y: scroll;
-    width: 100%;
+  overflow-y: scroll;
+  width: 100%;
+  display: inline-block;
+  position: fixed;
+  top: 18%;
+  left: 5%;
+}
+
+/* <!-- second slider -->  */
+// .carousel-images {
+//   padding: .3em .3em 0;
+//   background: rgb(240,240,240);
+//   text-align: center;
+// }
+.carousel-images .videoOpen {
+  position: relative;
+  padding-top: 56.25%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.carousel-images iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+.carousel-images {
+  margin-bottom: $space_desktop;
+  p.date {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 10px;
+  }
+  p.title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 10px;
+  }
+  span.des {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+  }
+  a {
+    position: relative;
     display: inline-block;
-    position: fixed;
-    top: 18%;
-    z-index: 9999;
-    left: 5%;;
+
+    text-decoration: none;
+    img {
+      width: 120px;
+      height: 90px;
+      border-radius: 8px;
+    }
+  }
+}
+
+// .carousel-images a:visited,
+// .carousel-images a:nth-of-type(1) {
+//   border-color: #555;  /* рамка вокруг миниатюр просмотренных видео */
+// }
+.carousel-images a:hover {
+  opacity: 1;
+}
+.carousel-images a:not(:active):focus {
+  pointer-events: none;
+}
+.carousel-images a::before {
+  content: "";
+  position: absolute;
+  top: 0em;
+  right: 0em;
+  bottom: 0em;
+  left: 0em;
+  background: rgba(255, 255, 254, 0.7);
+  transition: background 0s 9999999s;
+}
+.carousel-images a:nth-of-type(1)::before {
+  background: unset;
+}
+.carousel-images span:active a::before {
+  background: rgba(0, 0, 0, 0);
+  transition: background 0s;
+}
+.carousel-images span:active a:active::before {
+  background: rgba(255, 255, 255, 0.7);
+  transition: background 0s;
+}
+.carousel-images img {
+  max-width: 100%;
+  vertical-align: middle; /* убрать нижний отступ до рамки под картинкой */
+}
+
+#expandedImg {
+  margin: 40px 0;
 }
