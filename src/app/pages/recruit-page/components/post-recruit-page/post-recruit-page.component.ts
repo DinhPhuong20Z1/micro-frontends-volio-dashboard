@@ -1,4 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 import {
   MatDialog,
   MatDialogRef,
@@ -48,6 +50,13 @@ export class PostRecruitPageComponent implements OnInit {
   }
 }
 
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
+
 @Component({
   selector: 'dialog-recruit-page',
   templateUrl: 'dialog-recruit-page.component.html',
@@ -56,11 +65,25 @@ export class PostRecruitPageComponent implements OnInit {
 export class DialogRecruitPage {
   datafile: number = 0;
   files: any = []
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+
+
+
+  matcher = new MyErrorStateMatcher();
 
   constructor(
     public dialogRef: MatDialogRef<DialogRecruitPage>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) {}
+  ) {
+  }
+
+  getErrorMessage() {
+    if (this.emailFormControl.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.emailFormControl.hasError('email') ? 'Not a valid email' : '';
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -68,19 +91,6 @@ export class DialogRecruitPage {
 
   saveDialog() {}
 
-
-
-  // onFileSelected(event: any) {
-  //   const file:File = event.target.files[0];
-
-  //   if (file) {
-  //       this.datafile = file.name;
-  //       const formData = new FormData();
-  //       formData.append("thumbnail", file);
-
-
-  //   }
-  // }
   onFileSelected(event: any) {
     const file = event.target.files;
     for (let i = 0; i < file.length; i++) {

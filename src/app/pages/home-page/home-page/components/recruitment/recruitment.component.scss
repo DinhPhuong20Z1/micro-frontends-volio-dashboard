@@ -18,6 +18,7 @@ $color_background: #FFC934;
   padding: 40px 50px;
   position: relative;
 }
+
 .gallery-cell::before {
   content: "";
   position: absolute;
@@ -178,7 +179,7 @@ $color_background: #FFC934;
 
 .recruitment {
   position: relative;
-  background-image: url("../../../../../../assets/img/img_home_hr.png");
+  background-image: url("../../../../../../assets/img/home/img_home_hr.png");
 
   backdrop-filter: blur(6px);
   background-repeat: no-repeat;

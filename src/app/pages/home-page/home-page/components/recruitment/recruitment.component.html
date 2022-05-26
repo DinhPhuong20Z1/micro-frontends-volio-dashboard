@@ -1,20 +1,22 @@
 <div class="recruitment">
   <div class="recruitment-main">
     <h6>Tuyển dụng</h6>
-    <div class="gallery js-flickity"
-    data-flickity-options='{ "wrapAround": true }' >
-    <div class="gallery-cell" *ngFor="let item of dataRecruitment">
-      <div>
-        <p class="title-recruitment" >{{item.title}} </p>
+    <div
+      class="gallery js-flickity"
+      data-flickity-options='{ "wrapAround": true }'
+    >
+      <div class="gallery-cell" *ngFor="let item of dataRecruitment">
+        <div>
+          <p class="title-recruitment">{{ item.title }}</p>
+        </div>
+
+        <span class="up-recruitment">Mức lương: ${{ item.amount }} </span>
+        <span class="deadline-recruitment"
+          >Hạn nộp hồ sơ: {{ item.deadline }}
+        </span>
+        <p class="des-recruitment">{{ item.des }}</p>
+        <button type="button"><a href="#" target="_blank">ứng tuyển</a></button>
       </div>
-
-      <span class="up-recruitment">Mức lương: ${{item.amount}} </span>
-      <span class="deadline-recruitment">Hạn nộp hồ sơ: {{item.deadline}} </span>
-      <p class="des-recruitment">{{item.des}}</p>
-      <button type="button"><a href="#" target="_blank">ứng tuyển</a></button>
-
     </div>
-
-  </div>
   </div>
 </div>

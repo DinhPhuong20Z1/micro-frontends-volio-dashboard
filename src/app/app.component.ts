@@ -7,7 +7,7 @@ import { Component, HostListener } from '@angular/core';
 })
 export class AppComponent {
   title = 'web-volio';
-
+  isSticky: boolean = false
   showScroll: boolean;
     showScrollHeight = 300;
     hideScrollHeight = 10;
@@ -36,4 +36,11 @@ export class AppComponent {
         }
       })();
     }
+
+    ;
+
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    this.isSticky = window.pageYOffset >= 250;
+  }
 }

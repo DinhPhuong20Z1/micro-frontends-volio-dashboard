@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-page',
@@ -8,11 +9,22 @@ import { Component, OnInit } from '@angular/core';
 export class ContactPageComponent implements OnInit {
   datafile: number = 0;
   files: any = [];
+
+  nameRq = new FormControl('', [Validators.required]);
+
   constructor() {}
 
   ngOnInit(): void {}
 
   sumbitForm() {}
+
+  getErrorMessage() {
+    if (this.nameRq.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.nameRq.hasError('nameRq') ? 'Not a valid name' : '';
+  }
 
   onFileSelected(event: any) {
     const file = event.target.files;

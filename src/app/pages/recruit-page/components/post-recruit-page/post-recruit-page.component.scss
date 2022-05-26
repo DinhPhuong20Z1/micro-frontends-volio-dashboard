@@ -86,6 +86,7 @@ $space_desktop: 100px;
         border: unset;
         font-weight: 500;
         font-size: 18px;
+        text-transform: uppercase;
         color: #fff;
         line-height: 60px;
         width: 100%;
@@ -224,6 +225,7 @@ $space_desktop: 100px;
   width: 100%;
   font-size: 16px;
   line-height: 40px;
+  text-transform: uppercase;
   color: #fff;
   font-family: "Inter";
   border: none;
@@ -234,6 +236,13 @@ $space_desktop: 100px;
 
 .file-input {
   display: none;
+}
+
+// ::ng-deep .mat-dialog-container {
+//   border-radius: 20px;
+// }
+::ng-deep label.mat-form-field-label, ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding-left: 5px;
 }
 ::-webkit-scrollbar-thumb {
   background: $color_main;

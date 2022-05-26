@@ -153,7 +153,7 @@ img {
   content: "";
   position: absolute;
   bottom: -220px;
-  background-image: url("../../../../assets/img/background-image-main.png");
+  background-image: url("../../../../assets/img/home/background-image-main.png");
   background-repeat: no-repeat; /* Do not repeat the image */
   background-position: center;
   width: 100%;
@@ -166,7 +166,7 @@ img {
   position: absolute;
   bottom: -270px;
   left: 0;
-  background-image: url("../../../../assets/img/boy.png");
+  background-image: url("../../../../assets/img/home/boy.png");
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: contain;
   width: 100%;
@@ -179,7 +179,7 @@ img {
   position: absolute;
   bottom: -270px;
   right: 0;
-  background-image: url("../../../../assets/img/girl.png");
+  background-image: url("../../../../assets/img/home/girl.png");
   background-repeat: no-repeat;
   background-size: contain;
   width: 480px;
@@ -232,7 +232,7 @@ img {
   content: "";
   position: absolute;
   bottom: -145px;
-  background-image: url("../../../../assets/img/bgr-v1.png");
+  background-image: url("../../../../assets/img/home/bgr-v1.png");
   background-repeat: no-repeat; /* Do not repeat the image */
   background-position: center;
   width: 100%;
@@ -355,7 +355,7 @@ span.icon-level {
   position: absolute;
   // bottom: -220px;
   left: 90px;
-  background-image: url("../../../../assets/img/list-con-v1.png");
+  background-image: url("../../../../assets/img/home/list-con-v1.png");
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: contain;
   width: 410px;
@@ -369,7 +369,7 @@ span.icon-level {
   content: "";
     position: absolute;
     right: 90px;
-  background-image: url("../../../../assets/img/list-con-v1.png");
+  background-image: url("../../../../assets/img/home/list-con-v1.png");
   background-repeat: no-repeat;
   background-size: contain;
   width: 410px;
@@ -382,7 +382,7 @@ span.icon-level {
 
 .product-main {
   position: relative;
-  background-image: url("../../../../assets/img/img_bg_sp.png");
+  background-image: url("../../../../assets/img/home/img_bg_sp.png");
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;

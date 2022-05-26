@@ -121,7 +121,9 @@ h6 {
 .file-input {
   display: none;
 }
-
+::ng-deep label.mat-form-field-label, ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding-left: 5px;
+}
 ::-webkit-scrollbar-thumb {
   background: $color_main;
   border-radius: 10px;
