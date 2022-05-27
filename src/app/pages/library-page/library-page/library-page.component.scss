@@ -370,3 +370,8 @@ nav::after {
 
 
 }
+@media only screen and (max-width: 1440px) {
+  .timeline.container-home {
+    max-width: 768px !important;
+  }
+}

@@ -20,12 +20,9 @@ h6 {
   .contact-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    > img {
-      padding: 0 15px;
-    }
+    column-gap: 15px;
     .colum-form {
       margin-top: 15px;
-      padding: 0 15px;
 
       .list-form-contact {
         .form-dialog {
@@ -96,7 +93,8 @@ h6 {
       position: absolute;
       color: #fff;
       background: red;
-      border-radius: 53px;
+      border-radius: 50px;
+      cursor: pointer;
       /* left: 0; */
       transform: translateX(50%);
     }

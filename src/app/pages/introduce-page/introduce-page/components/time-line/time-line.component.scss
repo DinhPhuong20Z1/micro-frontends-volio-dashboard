@@ -47,7 +47,6 @@ $space_desktop: 100px;
     margin-top: 80px;
     position: relative;
     .content {
-
       background: #ffffff;
 
       border-radius: 20px;
@@ -68,7 +67,6 @@ $space_desktop: 100px;
       }
     }
   }
-
 }
 .li.complete {
   .status {
@@ -84,4 +82,23 @@ $space_desktop: 100px;
       }
     }
   }
+}
+
+::ng-deep .timeline-section-v1 .owl-stage-outer {
+  padding-bottom: 50px;
+}
+
+@media only screen and (max-width: 1280px) {
+  .timeline-section {
+    ::ng-deep {
+      .wrapper .owl-carousel .owl-nav .owl-prev {
+        left: 0px;
+      }
+      .wrapper .owl-carousel .owl-nav .owl-next {
+        right: 0px;
+      }
+    }
+  }
+
+
 }

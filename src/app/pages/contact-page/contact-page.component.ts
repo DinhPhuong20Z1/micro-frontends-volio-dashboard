@@ -28,11 +28,14 @@ export class ContactPageComponent implements OnInit {
 
   onFileSelected(event: any) {
     const file = event.target.files;
+    console.log('file', file);
     for (let i = 0; i < file.length; i++) {
-      this.files.push(file[i]);
+      let dup = this.files.filter((j: any) => j.name === file[i].name).length;
+      if (dup === 0) {
+        this.files.push(file[i]);
+      }
     }
     this.totalSizeFile();
-    console.log('datafile', this.datafile);
     if (file) {
       const formData = new FormData();
       formData.append('thumbnail', file);

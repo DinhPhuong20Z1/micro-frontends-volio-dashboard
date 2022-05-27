@@ -94,7 +94,11 @@ export class DialogRecruitPage {
   onFileSelected(event: any) {
     const file = event.target.files;
     for (let i = 0; i < file.length; i++) {
-      this.files.push(file[i]);
+      let dup = this.files.filter((j: any) => j.name === file[i].name);
+      if (dup.length === 0) {
+        this.files.push(file[i]);
+      }
+
     }
     this.totalSizeFile();
     console.log('datafile', this.datafile);
