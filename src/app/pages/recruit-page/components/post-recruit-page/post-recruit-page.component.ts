@@ -1,4 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 import {
   MatDialog,
   MatDialogRef,
@@ -48,18 +50,40 @@ export class PostRecruitPageComponent implements OnInit {
   }
 }
 
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
+
 @Component({
   selector: 'dialog-recruit-page',
   templateUrl: 'dialog-recruit-page.component.html',
   styleUrls: ['./post-recruit-page.component.scss'],
 })
 export class DialogRecruitPage {
-  fileName = '';
+  datafile: number = 0;
+  files: any = []
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+
+
+
+  matcher = new MyErrorStateMatcher();
 
   constructor(
     public dialogRef: MatDialogRef<DialogRecruitPage>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) {}
+  ) {
+  }
+
+  getErrorMessage() {
+    if (this.emailFormControl.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.emailFormControl.hasError('email') ? 'Not a valid email' : '';
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -67,43 +91,40 @@ export class DialogRecruitPage {
 
   saveDialog() {}
 
-  // onFileSelected(event: any) {
-  //   const file: File = event.target.files[0];
-
-  //   if (file) {
-  //     this.fileName = file.name;
-
-  //     const formData = new FormData();
-
-  //     formData.append('thumbnail', file);
-
-  //     // const upload$ = this.http.post("/api/thumbnail-upload", formData);
-
-  //     // upload$.subscribe();
-  //   }
-  // }
-
   onFileSelected(event: any) {
-    const file:File = event.target.files[0];
+    const file = event.target.files;
+    for (let i = 0; i < file.length; i++) {
+      let dup = this.files.filter((j: any) => j.name === file[i].name);
+      if (dup.length === 0) {
+        this.files.push(file[i]);
+      }
 
-    if (file) {
-        this.fileName = file.name;
-        const formData = new FormData();
-        formData.append("thumbnail", file);
-
-        // const upload$ = this.http.post("/api/thumbnail-upload", formData, {
-        //     reportProgress: true,
-        //     observe: 'events'
-        // })
-        // .pipe(
-        //     finalize(() => this.reset())
-        // );
-
-        // this.uploadSub = upload$.subscribe(event => {
-        //   if (event.type == HttpEventType.UploadProgress) {
-        //     this.uploadProgress = Math.round(100 * (event.loaded / event.total));
-        //   }
-        // })
     }
+    this.totalSizeFile();
+    console.log('datafile', this.datafile);
+    if (file) {
+      const formData = new FormData();
+      formData.append('thumbnail', file);
+    }
+  }
+
+  handleFileDelete(f: any) {
+    const deleteData = this.files.filter((i: any, idx: any) => idx !== f);
+    this.files = deleteData;
+    this.totalSizeFile();
+  }
+
+  totalSizeFile() {
+    let totalData = 0;
+    for (let j = 0; j < this.files.length; j++) {
+      totalData += this.files[j].size;
+    }
+    console.log('totalData', totalData);
+    console.log('files', this.files);
+
+    let fSize = totalData / 1024;
+    console.log('fSize', fSize);
+    let sizeMB = fSize / 1024;
+    this.datafile = Number(sizeMB.toFixed(2));
   }
 }

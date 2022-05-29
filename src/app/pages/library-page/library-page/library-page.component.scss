@@ -3,7 +3,7 @@ $color_text: #363636;
 $space_desktop: 100px;
 
 .volio-library {
-  width: -webkit-fill-available;
+  width: 100%;
 }
 .library-section {
   margin-top: $space_desktop;
@@ -16,84 +16,68 @@ $space_desktop: 100px;
 }
 
 /* The actual timeline (the vertical ruler) */
-.timeline::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  background-color: $color_main;
-  top: 0;
-  bottom: 0;
-  left: 100px;
-  margin-left: -3px;
-}
+
 
 /* container-library around content */
-.container-library {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: auto;
-  display: inline-block;
-  top: 0px;
-  left: 100px;
-  .content {
-
-    p {
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 28px;
-      color: #fff;
-      padding: 6px 12px;
-      background-color: $color_text;
-      border-radius: 6px;
-      display: inline-block;
-      transition: all 0.4s ease-out;
-    }
-    ul {
-      // display: none;
-      // opacity: 0;
-      margin: 0;
-      padding: 10px 0 0px 20px;
-      transition: all 0.4s ease-out;
-      &:not(#list-time-0) {
-        display: none;
-      }
-      li {
-        padding: 20px 0;
-        font-weight: 600;
-font-size: 16px;
-line-height: 28px;
-        &:last-child {
-          padding-bottom: 10px;
-        }
-      }
-    }
-    &.active {
-      p {
-        background-color: $color_main;
-      }
-
-    }
-
-  }
-}
+// .container-library {
+//   padding: 10px 40px;
+//   position: relative;
+//   background-color: inherit;
+//   width: auto;
+//   display: inline-block;
+//   top: 0px;
+//   left: 90px;
+//   .content {
+//     p {
+//       font-weight: 700;
+//       font-size: 16px;
+//       line-height: 28px;
+//       color: #fff;
+//       padding: 6px 12px;
+//       background-color: $color_text;
+//       border-radius: 6px;
+//       display: inline-block;
+//       transition: all 0.4s ease-out;
+//     }
+//     ul {
+//       // display: none;
+//       // opacity: 0;
+//       margin: 0;
+//       padding: 10px 0 0px 20px;
+//       transition: all 0.4s ease-out;
+//       &:not(#list-time-0) {
+//         display: none;
+//       }
+//       li {
+//         padding: 20px 0;
+//         font-weight: 600;
+//         font-size: 16px;
+//         line-height: 28px;
+//         &:last-child {
+//           padding-bottom: 10px;
+//         }
+//       }
+//     }
+//     &.active {
+//       p {
+//         background-color: $color_main;
+//       }
+//     }
+//   }
+// }
 
 /* The circles on the timeline */
-.container-library .content::after {
+ .content::after {
   content: "";
   position: absolute;
   width: 16px;
   height: 16px;
   left: -54px;
-  background-color:  $color_text;
+  background-color: $color_text;
   border: 4px solid $color_text;
   top: 10px;
   border-radius: 50%;
   z-index: 1;
-}
-.container-library .content.active::after {
-  background-color:  $color_main;
-  border: 4px solid #ff9f55;
 }
 
 /* Place the container-library to the left */
@@ -103,7 +87,7 @@ line-height: 28px;
 
 /* Place the container-library to the right */
 .right {
-  left: 100px;
+  left: 90px;
 }
 
 /* Add arrows to the left container-library (pointing right) */
@@ -134,11 +118,7 @@ line-height: 28px;
   border-color: transparent $color_text transparent transparent;
   transition: all 0.4s ease-out;
 }
-.content.active::before {
-  border: medium solid $color_main;
-  border-color: transparent $color_main transparent transparent;
-  border-width: 10px 10px 10px 0;
-}
+
 
 /* Fix the circle for container-librarys on the right side */
 .right::after {
@@ -185,11 +165,213 @@ line-height: 28px;
 }
 .scroll-time {
   max-height: 300px;
-    overflow-y: scroll;
-    width: 100%;
+  overflow-y: scroll;
+  width: 100%;
+  display: inline-block;
+  position: fixed;
+  top: 18%;
+  left: 5%;
+}
+
+/* <!-- second slider -->  */
+// .carousel-images {
+//   padding: .3em .3em 0;
+//   background: rgb(240,240,240);
+//   text-align: center;
+// }
+.carousel-images .videoOpen {
+  position: relative;
+  padding-top: 56.25%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.carousel-images iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+.carousel-images {
+  margin-bottom: $space_desktop;
+  p.date {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 10px;
+  }
+  p.title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 10px;
+  }
+  span.des {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+  }
+  a {
+    position: relative;
     display: inline-block;
+
+    text-decoration: none;
+    img {
+      width: 120px;
+      height: 90px;
+      border-radius: 8px;
+    }
+  }
+}
+
+// .carousel-images a:visited,
+// .carousel-images a:nth-of-type(1) {
+//   border-color: #555;  /* рамка вокруг миниатюр просмотренных видео */
+// }
+.carousel-images a:hover {
+  opacity: 1;
+}
+.carousel-images a:not(:active):focus {
+  pointer-events: none;
+}
+.carousel-images a::before {
+  content: "";
+  position: absolute;
+  top: 0em;
+  right: 0em;
+  bottom: 0em;
+  left: 0em;
+  background: rgba(255, 255, 254, 0.7);
+  transition: background 0s 9999999s;
+}
+.carousel-images a:nth-of-type(1)::before {
+  background: unset;
+}
+.carousel-images span:active a::before {
+  background: rgba(0, 0, 0, 0);
+  transition: background 0s;
+}
+.carousel-images span:active a:active::before {
+  background: rgba(255, 255, 255, 0.7);
+  transition: background 0s;
+}
+.carousel-images img {
+  max-width: 100%;
+  vertical-align: middle; /* убрать нижний отступ до рамки под картинкой */
+}
+
+#expandedImg {
+  margin: 40px 0;
+}
+
+
+
+article {
+  position: relative;
+  margin-top: $space_desktop;
+}
+nav::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background-color: $color_main;
+  top: 0;
+  bottom: 0;
+  left: -40px;
+  margin-left: -3px;
+}
+
+.timeline {
+  &__nav {
     position: fixed;
-    top: 18%;
-    z-index: 9999;
-    left: 5%;;
+    z-index: 99;
+    top: 0;
+    transition: top 0.3s ease-out;
+    left: 130px;
+  //   max-height: 300px;
+  // overflow-y: scroll;
+  // overflow-x: hidden;
+  // width: 100%;
+  // padding-left: 80px;
+
+    ul {
+      list-style: none;
+      list-style-position: inside;
+      margin: 15px 0;
+      padding: 0;
+      transition: all 0.4s ease-out;
+
+
+      li {
+        padding-left: 15px ;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 28px;
+        span {
+          line-height: 45px;
+          display: block;
+        }
+        &.active {
+          font-weight: bold;
+          color: $color_main;
+          border-bottom: 1px dotted transparent;
+          transform: scale(1.2);
+        }
+
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  }
+}
+.timeline__nav {
+  &:not(.fixed) {
+    margin-top: 300px;
+  }
+  transition: all 0.4s ease-out;
+  .content {
+    &:not(:first-child) {
+      margin-top: 30px;
+      ul {
+        display: none;
+      }
+    }
+    &.active-item-year {
+      &::after {
+        background-color: $color_main;
+        border: 4px solid #ff9f55;
+      }
+      &::before {
+        border: medium solid $color_main;
+        border-color: transparent $color_main transparent transparent;
+        border-width: 10px 10px 10px 0;
+      }
+      p {
+        background-color: $color_main;
+      }
+    }
+
+    .year-timeline {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 28px;
+      color: #fff;
+      padding: 6px 12px;
+      background-color: $color_text;
+      border-radius: 6px;
+      display: inline-block;
+      transition: all 0.4s ease-out;
+    }
+  }
+
+
+}
+@media only screen and (max-width: 1440px) {
+  .timeline.container-home {
+    max-width: 768px !important;
+  }
 }

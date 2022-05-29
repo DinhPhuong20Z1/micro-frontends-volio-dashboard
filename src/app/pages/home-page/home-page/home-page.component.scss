@@ -2,6 +2,8 @@
 $color_main: #f2c94c;
 $color_text: #363636;
 $space_desktop: 50px;
+$color_level: #FFBA34;
+$color_background: #FFC934;
 
 * {
   box-sizing: border-box;
@@ -120,7 +122,6 @@ img {
 }
 .content-box-1 {
   margin-top: 20px;
-  padding: 0 15px;
 }
 .content-box-1 h2 {
   font-style: normal;
@@ -152,7 +153,7 @@ img {
   content: "";
   position: absolute;
   bottom: -220px;
-  background-image: url("../../../../assets/img/background-image-main.png");
+  background-image: url("../../../../assets/img/home/background-image-main.png");
   background-repeat: no-repeat; /* Do not repeat the image */
   background-position: center;
   width: 100%;
@@ -165,7 +166,7 @@ img {
   position: absolute;
   bottom: -270px;
   left: 0;
-  background-image: url("../../../../assets/img/boy.png");
+  background-image: url("../../../../assets/img/home/boy.png");
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: contain;
   width: 100%;
@@ -178,7 +179,7 @@ img {
   position: absolute;
   bottom: -270px;
   right: 0;
-  background-image: url("../../../../assets/img/girl.png");
+  background-image: url("../../../../assets/img/home/girl.png");
   background-repeat: no-repeat;
   background-size: contain;
   width: 480px;
@@ -231,7 +232,7 @@ img {
   content: "";
   position: absolute;
   bottom: -145px;
-  background-image: url("../../../../assets/img/bgr-v1.png");
+  background-image: url("../../../../assets/img/home/bgr-v1.png");
   background-repeat: no-repeat; /* Do not repeat the image */
   background-position: center;
   width: 100%;
@@ -284,16 +285,15 @@ img {
 .numbers-item-left > div {
   height: 20px;
 }
-nb-icon {
-  width: 50px;
-  height: 50px;
-  color: $color_main;
+span.icon-level {
+  color: $color_level;
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
   animation-name: scroll;
   bottom: 20px;
   left: 35px;
   position: relative;
+  font-size: 50px;
 }
 @keyframes scroll {
   0% {
@@ -305,10 +305,10 @@ nb-icon {
     transform: translateY(0px);
   }
 }
-.numbers-item-left > div:nth-child(1) nb-icon {
+.numbers-item-left > div:nth-child(1) span.icon-level {
   animation-delay: 1s;
 }
-.numbers-item-left > div:nth-child(2) nb-icon {
+.numbers-item-left > div:nth-child(2) span.icon-level {
   animation-delay: 0.5s;
 }
 .statistical-item {
@@ -323,14 +323,14 @@ nb-icon {
   font-weight: 600;
   font-size: 56px;
   line-height: 64px;
-  color: $color_main;
+  color: $color_level;
   margin-right: 14px;
 }
 .statistical-item .unit {
   font-weight: 700;
   font-size: 20px;
   line-height: 32px;
-  color: $color_main;
+  color: $color_level;
   position: absolute;
 }
 .type-statistical {
@@ -355,7 +355,7 @@ nb-icon {
   position: absolute;
   // bottom: -220px;
   left: 90px;
-  background-image: url("../../../../assets/img/list-con-v1.png");
+  background-image: url("../../../../assets/img/home/list-con-v1.png");
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: contain;
   width: 410px;
@@ -369,7 +369,7 @@ nb-icon {
   content: "";
     position: absolute;
     right: 90px;
-  background-image: url("../../../../assets/img/list-con-v1.png");
+  background-image: url("../../../../assets/img/home/list-con-v1.png");
   background-repeat: no-repeat;
   background-size: contain;
   width: 410px;
@@ -382,7 +382,7 @@ nb-icon {
 
 .product-main {
   position: relative;
-  background-image: url("../../../../assets/img/img_bg_sp.png");
+  background-image: url("../../../../assets/img/home/img_bg_sp.png");
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;
@@ -428,24 +428,45 @@ color: $color_text;
 margin: 0;
 }
 .product-main .item-product-v1 {
-  left: 12%;
-  top: 28px;
+  left: 50%;
+top: 28px;
+transform: translateX(-150%);
 }
 .product-main .item-product-v2 {
   left: 42%;
   top: 57px;
 }
 .product-main .item-product-v3 {
-  left: 6%;
+  left: 50%;
   bottom: 30px;
+  transform: translateX(-150%);
 }
 .product-main .item-product-v4 {
   left: 36%;
   bottom: 0px;
 }
 // End Product
-
-
+@media only screen and (max-width: 1440px) {
+  .product .product-bgr {
+    &::before {
+      left: 15px;
+      width: 320px;
+      height: 320px;
+    }
+    &::after {
+      right: 15px;
+      width: 320px;
+      height: 320px;
+    }
+  }
+}
+@media only screen and (max-width: 1280px) {
+  .policy .boy-girl::before, .policy .boy-girl::after {
+    background-size: 30%;
+    height: 66%;
+    bottom: -320px;
+  }
+}
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
   .prev,

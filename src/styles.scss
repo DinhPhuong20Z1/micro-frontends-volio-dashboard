@@ -13,7 +13,7 @@ body {
   height: 100%;
 }
 body {
-  font-family: "Inter";
+  font-family: "Inter" !important;
   color: #363636;
   font-size: 14px;
   font-weight: 500;
@@ -24,6 +24,15 @@ p {
 }
 header {
   box-shadow: 0px 4px 8px rgb(0 0 0 / 8%);
+  width: 100%;
+  z-index: 9999;
+  background: #fff;
+  transition: all 0.4s ease-out;
+}
+header.sticky {
+  position: fixed;
+  top: 0;
+  transition: all 0.4s ease-out;
 }
 footer {
   background-color: #f1f1f1;
@@ -38,7 +47,8 @@ ol.flickity-page-dots {
   transform: unset;
 }
 .recruitment .flickity-prev-next-button.previous {
-  left: 47%;
+  left: 50%;
+  transform: translateX(-50px);
 }
 .recruitment .flickity-prev-next-button.previous svg,
 .recruitment .flickity-prev-next-button.next svg {
@@ -55,7 +65,8 @@ ol.flickity-page-dots {
   justify-content: center;
 }
 .recruitment .flickity-prev-next-button.next {
-  right: 47%;
+  right: 50%;
+  transform: translateX(50px);
 }
 .recruitment .flickity-prev-next-button.next::before {
   content: "\f1df";
@@ -127,85 +138,100 @@ ol.flickity-page-dots {
     }
     .owl-prev {
       left: -50px;
-
     }
     .owl-next {
       right: -50px;
     }
   }
   .owl-item:last-child {
-    .status {
-      padding-right: 0;
-      .border-content {
-        &::before {
-          content: "";
-          width: 0;
-          height: 0;
-          border-left: 20px solid transparent;
-          border-right: 20px solid transparent;
-          border-bottom: 20px solid #ffba34;
-          position: absolute;
-          top: -20px;
-          right: 50%;
-          transform: translateX(50%);
-        }
-        .bgr-content {
-          padding: 20px;
-          background: #ffba34;
-          border-radius: 20px;
-
-          .content {
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.12);
-            z-index: 2;
-            position: relative;
-            padding: 20px;
-
-          }
-          .item-border {
+    #timeline {
+      position: absolute;
+      .status {
+        padding-right: 0;
+        .border-content {
+          &::before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid #ffba34;
             position: absolute;
-            width: calc(100% - 4px);
-            height: calc(50% - 4px);
-            bottom: 0;
-            border-radius: 0 0 20px 20px;
-            border-right: 2px dashed #ffba34;
-            background: #fff;
-            left: 0;
-            z-index: 1;
-            border-left: 2px dashed #ffba34;
-            border-bottom: 2px dashed #ffba34;
+            top: -20px;
+            right: 50%;
+            transform: translateX(50%);
+          }
+          .bgr-content {
+            padding: 20px;
+            background: #ffba34;
+            border-radius: 20px;
+
+            .content {
+              box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.12);
+              z-index: 2;
+              position: relative;
+              padding: 20px;
+            }
+            .item-border {
+              position: absolute;
+              width: calc(100% - 4px);
+              height: calc(50% - 4px);
+              bottom: 0;
+              border-radius: 0 0 20px 20px;
+              border-right: 2px dashed #ffba34;
+              background: #fff;
+              left: 0;
+              z-index: 1;
+              border-left: 2px dashed #ffba34;
+              border-bottom: 2px dashed #ffba34;
+            }
           }
         }
       }
     }
 
-
-
   }
 }
+.container, .container-home, .container-header, .container-product {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 15px;
+}
+
+.mat-dialog-container {
+  border-radius: 20px;
+  .title-dialog {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: $color_main;
+    margin: 0 0 20px 0;
+  }
+}
+
+.mat-stroked-button.mat-button-disabled.mat-button-disabled {
+  background: #E1E1E1;
+  color: #fff;
+  cursor: not-allowed;
+}
+
 @media (min-width: 1320px) {
   .container {
     max-width: 1560px !important;
-    margin-right: auto;
-    margin-left: auto;
+
   }
 
   .container-home,
   .container-header {
-    max-width: 1230px !important;
-    margin-right: auto;
-    margin-left: auto;
+    max-width: 1250px !important;
+
   }
 
   .container-product {
     max-width: 740px !important;
-    margin-right: auto;
-    margin-left: auto;
+
   }
 }
-.mat-dialog-container .title-dialog {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
-  color: $color_main;
-  margin: 0 0  20px 0;
-}
+
+
+
