@@ -89,6 +89,7 @@ $(() => {
 })
 export class LibraryPageComponent implements OnInit {
   openvideo = '1';
+  imageSrc = '';
   listTimeLine = [
     {
       year: '2022',
@@ -208,6 +209,8 @@ export class LibraryPageComponent implements OnInit {
     console.log('imgs.srcElement',imgs.srcElement)
     if (expandImg != null) {
       expandImg.src = imgs.srcElement.currentSrc;
+    } else {
+      this.imageSrc = imgs.srcElement.currentSrc;
     }
     if (expandImg != null && expandImg.parentElement != null) {
       expandImg.parentElement.style.display = 'block';

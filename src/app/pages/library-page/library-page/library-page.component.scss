@@ -72,7 +72,7 @@ $space_desktop: 100px;
   position: absolute;
   width: 16px;
   height: 16px;
-  left: -54px;
+  left: 35px;
   background-color: $color_text;
   border: 4px solid $color_text;
   top: 10px;
@@ -112,7 +112,7 @@ $space_desktop: 100px;
   top: 10px;
   width: 0;
   z-index: 1;
-  left: -10px;
+  left: 70px;
   border: medium solid $color_text;
   border-width: 10px 10px 10px 0;
   border-color: transparent $color_text transparent transparent;
@@ -128,6 +128,7 @@ $space_desktop: 100px;
 /* The actual content */
 .content {
   position: relative;
+  text-align: center;
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
@@ -278,8 +279,9 @@ nav::after {
   background-color: $color_main;
   top: 0;
   bottom: 0;
-  left: -40px;
+  left: 49px;
   margin-left: -3px;
+  height: 470px;
 }
 
 .timeline {
@@ -294,6 +296,10 @@ nav::after {
   // overflow-x: hidden;
   // width: 100%;
   // padding-left: 80px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 250px;
+  width: 160px;
 
     ul {
       list-style: none;
@@ -301,7 +307,8 @@ nav::after {
       margin: 15px 0;
       padding: 0;
       transition: all 0.4s ease-out;
-
+      left: 57px;
+      position: relative;
 
       li {
         padding-left: 15px ;
@@ -310,6 +317,7 @@ nav::after {
         font-weight: 600;
         font-size: 14px;
         line-height: 28px;
+        text-align: left;
         span {
           line-height: 45px;
           display: block;
@@ -359,12 +367,14 @@ nav::after {
       font-weight: 700;
       font-size: 16px;
       line-height: 28px;
+
       color: #fff;
       padding: 6px 12px;
       background-color: $color_text;
       border-radius: 6px;
       display: inline-block;
       transition: all 0.4s ease-out;
+      margin-left: 62px;
     }
   }
 
@@ -374,4 +384,16 @@ nav::after {
   .timeline.container-home {
     max-width: 768px !important;
   }
+}
+::-webkit-scrollbar-thumb {
+  background: $color_main;
+  border-radius: 10px;
+}
+::-webkit-scrollbar {
+  height: 3px;
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
 }
