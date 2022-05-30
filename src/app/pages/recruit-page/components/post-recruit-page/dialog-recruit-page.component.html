@@ -1,4 +1,10 @@
-<h6 class="title-dialog">Thông tin hồ sơ ứng tuyển:</h6>
+
+  <h6 *ngIf="success; else elseDefault"  class="title-dialog title-success-dialog"><mat-icon>check_circle_outline</mat-icon>  Nộp hồ sơ thành công!</h6>
+  <p *ngIf="success" class="des-success-dialog">Chúng tôi sẽ liên hệ với bạn trong 3-5 ngày làm việc tiếp theo. Xin cảm ơn!</p>
+
+<ng-template #elseDefault>
+  <h6 class="title-dialog">Thông tin hồ sơ ứng tuyển:</h6>
+</ng-template>
 
 <form class="form-dialog">
   <mat-form-field class="name-dialog" appearance="outline">
@@ -27,7 +33,7 @@
     </mat-form-field>
     <mat-form-field class="phone-dialog" appearance="outline" >
       <mat-label>Điện thoại </mat-label>
-      <mat-icon matPrefix><span class="material-symbols-outlined">
+      <mat-icon *ngIf="success" matPrefix><span class="material-symbols-outlined">
         call
         </span></mat-icon>
       <input #inputID matInput placeholder="" value="" required/>
@@ -76,11 +82,15 @@
 
   </div>
 </div>
-<button
+
+  <button
   [disabled]="!files?.length"
   mat-stroked-button
   class="savedialog"
   (click)="saveDialog()"
+  #elseDefault
 >
   Nộp hồ sơ
 </button>
+
+

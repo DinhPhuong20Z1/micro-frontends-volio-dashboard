@@ -5,13 +5,14 @@ $space_desktop: 100px;
 
 @font-face {
   font-family: Inter;
-  src: url(../src/assets/font-family/Inter/static/Inter-Medium.ttf)
-    format("opentype");
+  src: url(../src/assets/font-family/Inter/static/Inter-Medium.ttf) format("opentype");
 }
+
 html,
 body {
   height: 100%;
 }
+
 body {
   font-family: "Inter" !important;
   color: #363636;
@@ -19,9 +20,11 @@ body {
   font-weight: 500;
   margin: 0;
 }
+
 p {
   margin: 0;
 }
+
 header {
   box-shadow: 0px 4px 8px rgb(0 0 0 / 8%);
   width: 100%;
@@ -29,14 +32,17 @@ header {
   background: #fff;
   transition: all 0.4s ease-out;
 }
+
 header.sticky {
   position: fixed;
   top: 0;
   transition: all 0.4s ease-out;
 }
+
 footer {
   background-color: #f1f1f1;
 }
+
 ol.flickity-page-dots {
   display: none;
 }
@@ -46,14 +52,17 @@ ol.flickity-page-dots {
   top: auto;
   transform: unset;
 }
+
 .recruitment .flickity-prev-next-button.previous {
   left: 50%;
   transform: translateX(-50px);
 }
+
 .recruitment .flickity-prev-next-button.previous svg,
 .recruitment .flickity-prev-next-button.next svg {
   display: none;
 }
+
 .recruitment .flickity-prev-next-button.previous::before {
   content: "\f1e6";
   font-family: "Material Symbols Outlined";
@@ -64,10 +73,12 @@ ol.flickity-page-dots {
   align-items: center;
   justify-content: center;
 }
+
 .recruitment .flickity-prev-next-button.next {
   right: 50%;
   transform: translateX(50px);
 }
+
 .recruitment .flickity-prev-next-button.next::before {
   content: "\f1df";
   font-family: "Material Symbols Outlined";
@@ -78,10 +89,12 @@ ol.flickity-page-dots {
   align-items: center;
   justify-content: center;
 }
+
 .recruitment .flickity-button {
   color: #fff;
   background: rgba(0, 0, 0, 0.2);
 }
+
 .recruitment .flickity-button:hover {
   color: #fff;
   background: rgba(0, 0, 0, 0.6);
@@ -94,25 +107,29 @@ ol.flickity-page-dots {
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
-    .nav-btn {
-    }
+
+    .nav-btn {}
+
     .owl-next {
       right: 0;
       position: absolute;
       background: rgba(0, 0, 0, 0.2);
       border-radius: 100%;
       padding: 4px 4px;
+
       &:hover {
         color: $color_main;
         background: rgba(0, 0, 0, 0.2);
       }
     }
+
     .owl-prev {
       left: 0;
       position: absolute;
       background: rgba(0, 0, 0, 0.2);
       border-radius: 100%;
       padding: 4px 4px;
+
       &:hover {
         color: $color_main;
         background: rgba(0, 0, 0, 0.2);
@@ -120,10 +137,12 @@ ol.flickity-page-dots {
     }
   }
 }
+
 .timeline-section .wrapper {
   .owl-carousel .owl-nav {
     top: 0;
     transform: unset;
+
     .owl-prev,
     .owl-next {
       background: rgba(0, 0, 0, 0.4);
@@ -132,22 +151,28 @@ ol.flickity-page-dots {
       width: 40px;
       height: 40px;
       margin: 0;
+
       span {
         line-height: 42px;
       }
     }
+
     .owl-prev {
       left: -50px;
     }
+
     .owl-next {
       right: -50px;
     }
   }
+
   .owl-item:last-child {
     #timeline {
       position: absolute;
+
       .status {
         padding-right: 0;
+
         .border-content {
           &::before {
             content: "";
@@ -161,6 +186,7 @@ ol.flickity-page-dots {
             right: 50%;
             transform: translateX(50%);
           }
+
           .bgr-content {
             padding: 20px;
             background: #ffba34;
@@ -172,6 +198,7 @@ ol.flickity-page-dots {
               position: relative;
               padding: 20px;
             }
+
             .item-border {
               position: absolute;
               width: calc(100% - 4px);
@@ -192,7 +219,11 @@ ol.flickity-page-dots {
 
   }
 }
-.container, .container-home, .container-header, .container-product {
+
+.container,
+.container-home,
+.container-header,
+.container-product {
   margin-right: auto;
   margin-left: auto;
   padding: 0 15px;
@@ -200,11 +231,27 @@ ol.flickity-page-dots {
 
 .mat-dialog-container {
   border-radius: 20px;
+
   .title-dialog {
     font-weight: 700;
     font-size: 18px;
     line-height: 24px;
     color: $color_main;
+    margin: 0 0 20px 0;
+    &.title-success-dialog {
+      color: #00CD39;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      .mat-icon {
+        margin-right: 5px;
+      }
+    }
+  }
+  .des-success-dialog {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
     margin: 0 0 20px 0;
   }
 }
@@ -232,6 +279,3 @@ ol.flickity-page-dots {
 
   }
 }
-
-
-

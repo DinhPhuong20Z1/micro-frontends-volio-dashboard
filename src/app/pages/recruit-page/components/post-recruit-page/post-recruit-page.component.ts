@@ -66,9 +66,7 @@ export class DialogRecruitPage {
   datafile: number = 0;
   files: any = []
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-
-
-
+  success = false;
   matcher = new MyErrorStateMatcher();
 
   constructor(
