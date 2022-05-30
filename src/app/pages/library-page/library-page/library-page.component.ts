@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -76,9 +77,7 @@ $(() => {
 
 		timeline.css('top', -1 * active * TIMELINE_VALUES.step + TIMELINE_VALUES.start + 'px')
 
-    console.log('items',items)
 		items.filter('.active').removeClass('active')
-    console.log('items1',items)
 		items.eq(active != -1 ? active : 0).addClass('active')
 	}).trigger('scroll')
 })
@@ -123,18 +122,19 @@ export class LibraryPageComponent implements OnInit {
     // autoplay: true,
     dots: false,
     // autoHeight: true,
-    // autoWidth: true,
-    nav: true,
-    navText: [
-      "<div class='nav-btn prev-slide'><span class='material-symbols-outlined'>west</span></div>",
-      "<div class='nav-btn next-slide'><span class='material-symbols-outlined'>east</span></div>",
-    ],
+     // autoWidth: true,
+     nav: true,
+     navText: [
+       "<div class='nav-btn prev-slide'><span class='material-symbols-outlined'>west</span></div>",
+       "<div class='nav-btn next-slide'><span class='material-symbols-outlined'>east</span></div>",
+     ],
     responsive: {
       0: {
         items: 1,
       },
       600: {
-        items: 1,
+        items: 7
+        ,
       },
       1000: {
         items: 10,
@@ -205,6 +205,7 @@ export class LibraryPageComponent implements OnInit {
       'expandedImg'
     ) as HTMLImageElement | null;
     console.log('expandImg',expandImg)
+    console.log('imgs.srcElement',imgs.srcElement)
     if (expandImg != null) {
       expandImg.src = imgs.srcElement.currentSrc;
     }
